@@ -1,65 +1,74 @@
 <div class="container">
   <p-toast></p-toast>
 
-  <div class="ui-g">
+  <form autocomplete="off" (ngSubmit)="pesquisar()">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Categorias</h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Descrição</label>
+        <input name="filtro" [(ngModel)]="filtro" type="text" pInputText />
+      </div>
+
+      <div class="ui-g-12">
+        <button type="submit" pButton label="Pesquisar"></button>
+      </div>
+    </div>
+  </form>
+    <div class="ui-g">
+      <p-confirmDialog #cd header="Confirmação" icon="pi pi-exclamation-triangle">
+        <p-footer>
+          <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+          <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+        </p-footer>
+      </p-confirmDialog>
+
+      <div class="ui-g-12">
+        <p-table [value]="categorias" [responsive]="true" [paginator]="true" [rows]="10">
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="col-id-header">Id</th>
+              <th>Descrição</th>
+              <th></th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-categoria>
+            <tr>
+              <td class="col-id">{{ categoria.id }}</td>
+              <td>{{ categoria.nome }}</td>
+              <td>
+                <button
+                  showDelay="1000"
+                  pButton
+                  icon="pi pi-pencil"
+                  pTooltip="Editar"
+                  tooltipPosition="top"
+                  class="ui-button-info"
+
+                >
+                </button>
+
+                <button
+                  showDelay="1000"
+                  pButton
+                  icon="pi pi-trash"
+                  pTooltip="Excluir"
+                  tooltipPosition="top"
+                  class="ui-button-danger"
+                  (click)="excluir(categoria)"
+                >
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
     <div class="ui-g-12">
-      <h1>Categorias</h1>
+      <a pButton label="Nova Categoria"></a>
     </div>
-
-    <div class="ui-g-12 ui-fluid">
-      <label>Descrição</label>
-      <input type="text" pInputText />
-    </div>
-
-    <div class="ui-g-12">
-      <button pButton type="button" label="Pesquisar"></button>
-    </div>
-  </div>
-  <div class="ui-g">
-    <div class="ui-g-12">
-      <p-table [value]="categorias" [responsive]="true" [paginator]="true" [rows]="10">
-        <ng-template pTemplate="header">
-          <tr>
-            <th class="col-id-header">Id</th>
-            <th>Descrição</th>
-            <th></th>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="body" let-categoria>
-          <tr>
-            <td class="col-id">{{ categoria.id }}</td>
-            <td>{{ categoria.nome }}</td>
-            <td>
-              <button
-                showDelay="1000"
-                pButton
-                icon="pi pi-pencil"
-                pTooltip="Editar"
-                tooltipPosition="top"
-                class="ui-button-info"
-
-              >
-              </button>
-
-              <button
-                showDelay="1000"
-                pButton
-                icon="pi pi-trash"
-                pTooltip="Excluir"
-                tooltipPosition="top"
-                class="ui-button-danger"
-                (click)="excluir(categoria)"
-              >
-              </button>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div>
-  </div>
-
-  <div class="ui-g-12">
-    <a pButton label="Nova Categoria"></a>
-  </div>
 </div>
