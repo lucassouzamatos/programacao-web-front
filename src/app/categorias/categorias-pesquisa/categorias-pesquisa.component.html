@@ -47,7 +47,7 @@
                   pTooltip="Editar"
                   tooltipPosition="top"
                   class="ui-button-info"
-
+                  [routerLink]="['/categorias', categoria.id]"
                 >
                 </button>
 
@@ -69,6 +69,6 @@
     </div>
 
     <div class="ui-g-12">
-      <a pButton label="Nova Categoria"></a>
+      <a pButton routerLink="/categorias/novo" label="Nova Categoria"></a>
     </div>
 </div>

@@ -10,6 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 
+import {Routes, RouterModule} from '@angular/router';
+import { CategoriasPesquisaComponent } from './categorias/categorias-pesquisa/categorias-pesquisa.component';
+import { CategoriasCadastroComponent } from './categorias/categorias-cadastro/categorias-cadastro.component';
+
+const rotas: Routes = [
+  { path: 'categorias', component: CategoriasPesquisaComponent },
+  { path: 'categorias/novo', component: CategoriasCadastroComponent },
+  { path: 'categorias/:id', component: CategoriasCadastroComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +29,8 @@ import { ConfirmationService } from 'primeng/api';
     BrowserAnimationsModule,
     CategoriasModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
+    RouterModule.forRoot(rotas)
   ],
   providers: [
     MessageService,
