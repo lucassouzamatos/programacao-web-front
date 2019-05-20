@@ -22,7 +22,6 @@ export class CategoriasCadastroComponent implements OnInit {
   }
 
   ngOnInit() {
-    let a = [1,2]
     const { id } = this.rota.snapshot.params;
     if (id) {
       this.carregarCategoria(id);
