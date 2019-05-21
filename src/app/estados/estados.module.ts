@@ -28,6 +28,10 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     RouterModule
   ],
+  exports: [
+    EstadosCadastroComponent,
+    EstadosPesquisaComponent
+  ],
   providers: [
     EstadosService
   ]

@@ -15,6 +15,7 @@ import { CategoriasPesquisaComponent } from './categorias/categorias-pesquisa/ca
 import { CategoriasCadastroComponent } from './categorias/categorias-cadastro/categorias-cadastro.component';
 import { EstadosPesquisaComponent } from './estados/estados-pesquisa/estados-pesquisa.component';
 import { EstadosCadastroComponent } from './estados/estados-cadastro/estados-cadastro.component';
+import { EstadosModule } from './estados/estados.module';
 
 const rotas: Routes = [
   { path: 'categorias', component: CategoriasPesquisaComponent },
@@ -33,6 +34,7 @@ const rotas: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     CategoriasModule,
+    EstadosModule,
     HttpClientModule,
     ToastModule,
     RouterModule.forRoot(rotas)
