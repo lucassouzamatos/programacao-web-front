@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProdutosService {
 
-  produtosURL = 'http://localhost:8080/produtos';
+  produtosURL = 'https://pweb-lucas.herokuapp.com/produtos';
 
   constructor(private http: HttpClient) { }
 

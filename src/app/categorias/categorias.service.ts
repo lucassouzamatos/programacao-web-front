@@ -6,7 +6,7 @@ import { Categoria } from './model';
   providedIn: 'root'
 })
 export class CategoriasService {
-  categoriasUrl = 'http://localhost:8080/categorias';
+  categoriasUrl = 'https://pweb-lucas.herokuapp.com/categorias';
 
   constructor(private service: HttpClient) { }
 

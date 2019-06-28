@@ -6,7 +6,7 @@ import { Estado } from './model';
   providedIn: 'root'
 })
 export class EstadosService {
-  estadosUrl = 'http://localhost:8080/estados';
+  estadosUrl = 'https://pweb-lucas.herokuapp.com/estados';
 
   constructor(private service: HttpClient) { }
 
